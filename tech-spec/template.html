@@ -229,24 +229,23 @@ td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-va
 <p>Contents</p>
 <p class="tocpart">Part 1 · Tech spec</p>
 <ol>
-<li><a href="#overview">Overview, goals and non-goals</a></li>
-<li><a href="#design">Technical design</a></li>
+<li><a href="#overview">Overview, goals, data model</a></li>
 <li><a href="#plan">Implementation plan</a></li>
-<li><a href="#testing">Testing strategy</a></li>
+<li><a href="#testing">Testing</a></li>
 <li><a href="#monitoring">Monitoring and rollback</a></li>
 <li><a href="#questions">Open questions</a></li>
-<li><a href="#followups">Follow-ups (out of scope)</a></li>
+<li><a href="#followups">Follow-ups</a></li>
 <li><a href="#alternatives">Alternatives considered</a></li>
 </ol>
 <p class="tocpart">Part 2 · The task in plain words</p>
-<ol start="9">
+<ol start="8">
 <li><a href="#refresher">Two-minute refresher</a></li>
 <li><a href="#wants">What the task wants, and why it matters</a></li>
 <li><a href="#steps">What you'll do, step by step</a></li>
 <li><a href="#done">How you'll know you're done</a></li>
 </ol>
 <p class="tocpart">Wrap-up</p>
-<ol start="13">
+<ol start="12">
 <li><a href="#worth-knowing">Data stores and tools worth knowing</a></li>
 <li><a href="#tips">Senior engineer tips</a></li>
 <li><a href="#practice">Practice</a></li>
@@ -257,77 +256,45 @@ td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-va
 <!-- ================= PART 1: SPEC ================= -->
 <p class="part">Part 1 · Tech spec</p>
 <h2 id="overview"><span class="secnum">1</span>Overview</h2>
-<p>REPLACE: the problem in two or three short paragraphs, with one anchor picture and one running example.</p>
-<div class="aside"><p>REPLACE: the ticket, lightly tidied.</p></div>
+<p>REPLACE: what the feature does, in one or two sentences.</p>
+<p>REPLACE: the gap in the code today, with the file:line that causes it.</p>
 <h3>Goals</h3>
-<ul><li>REPLACE: an observable outcome.</li></ul>
-<h3>Non-goals</h3>
-<ul><li>REPLACE: what this deliberately leaves alone.</li></ul>
-<h3>Scope at a glance</h3>
-<div class="tablewrap"><table>
-<thead><tr><th>Path</th><th>Today</th><th>After</th><th>Step</th></tr></thead>
-<tbody><tr><td>REPLACE</td><td><span class="pill no">broken</span></td><td><span class="pill yes">fixed</span></td><td class="num">1</td></tr></tbody>
-</table></div>
-
-<h2 id="design"><span class="secnum">2</span>Technical design</h2>
-<h3>System architecture</h3>
-<p>REPLACE: the flow in plain numbered steps (who calls what, in what order).</p>
+<ul><li>REPLACE: straight from the ticket.</li></ul>
 <h3>Data model</h3>
-<p>REPLACE: schema changes, or "No schema change" and why.</p>
-<h3>API design</h3>
-<p>REPLACE: what API consumers will notice. Mark anything breaking.</p>
-<pre><code class="language-json">{ "endpoint": "REPLACE", "response": { "newField": "number (new)" } }</code></pre>
-<h3>Security considerations</h3>
-<ul><li>REPLACE</li></ul>
+<p>REPLACE: "No change." plus the field that already exists (file:line), or the change.</p>
 
-<h2 id="plan"><span class="secnum">3</span>Implementation plan</h2>
-<h3>Dependencies</h3>
-<ul><li>REPLACE: existing helpers you'll reuse (file:line), product answers you need, frontend follow-ups.</li></ul>
-<h3>Timeline</h3>
-<p>Rough estimate for one engineer.</p>
+<h2 id="plan"><span class="secnum">2</span>Implementation plan</h2>
+<h4>1. REPLACE: plain step title (one function per step)</h4>
+<p>REPLACE: the function, what triggers it (process + cron/queue/route, file:line), and what changes.</p>
+<p class="codecap">path/to/file.ts:40-60</p>
+<pre><code class="language-typescript">const wallet = await Wallet.findOne({ merchantId });
+// …
+const free = getFreeBalance(wallet);   // new
+if (total &gt; free) total = free;        // new</code></pre>
+
+<h2 id="testing"><span class="secnum">3</span>Testing</h2>
 <div class="tablewrap"><table>
-<thead><tr><th>Phase</th><th>Steps</th><th>Estimate</th><th>Deliverable</th></tr></thead>
-<tbody><tr><td>REPLACE</td><td class="num">1–2</td><td class="num">1 day</td><td>REPLACE</td></tr></tbody>
+<thead><tr><th>What</th><th>Check</th><th>Fails today?</th></tr></thead>
+<tbody><tr><td>REPLACE</td><td>REPLACE</td><td><span class="pill no">yes</span></td></tr></tbody>
+</table></div>
+<p><b>Bug bash:</b> REPLACE: one line.</p>
+
+<h2 id="monitoring"><span class="secnum">4</span>Monitoring and rollback</h2>
+<ul><li><b>Watch:</b> REPLACE</li><li><b>Rollback:</b> REPLACE</li></ul>
+
+<h2 id="questions"><span class="secnum">5</span>Open questions</h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Question</th><th>Where</th><th>Who</th></tr></thead>
+<tbody><tr><td>REPLACE</td><td class="mono">file.ts:10</td><td>Team</td></tr></tbody>
 </table></div>
 
-<h3>Code changes, in order</h3>
-<p>REPLACE: two to four everyday paragraphs. What the thing is (anchor picture), what goes wrong today, the one-sentence idea the whole plan repeats, and how the steps build on each other.</p>
-<div class="timeline">
-<div class="tstep">
-<h4><span class="when">Step 1 · start here</span><br>REPLACE: plain step title</h4>
-<p>REPLACE: why you start here, and what this sets up for later steps.</p>
-<p class="ctxline">REPLACE: trigger → <code>caller</code> → your edit; who uses the result.</p>
-<p>REPLACE: what you change, in plain words, before the code.</p>
-<p class="codecap">path/to/file.ts:120-140</p>
-<pre><code class="language-typescript">const x = await Model.findOneAndUpdate(   // ← was findByIdAndUpdate
-  { _id, status: expected },               // ← new: only if it's still what I read
-  update);</code></pre>
-<p class="handoff">REPLACE: what is true now, and what the next step tackles.</p>
-</div>
-</div>
-
-<h2 id="testing"><span class="secnum">4</span>Testing strategy</h2>
-<h3>Test cases</h3>
-<ul class="checklist"><li>REPLACE: one test per changed path; say which fail on today's code.</li></ul>
-<h3>Success metrics</h3>
-<ul><li>REPLACE</li></ul>
-
-<h2 id="monitoring"><span class="secnum">5</span>Monitoring and rollback</h2>
-<h3>Monitoring plan</h3>
-<ul><li>REPLACE: logs, alerts, queries to watch after release.</li></ul>
-<h3>Rollback plan</h3>
-<ul><li>REPLACE: per step, how to undo it and what breaks if you do.</li></ul>
-
-<h2 id="questions"><span class="secnum">6</span>Open questions</h2>
-<ul class="checklist"><li>REPLACE: decisions needed, and "check this before coding" doubts with the file:line that raised them.</li></ul>
-
-<h2 id="followups"><span class="secnum">7</span>Follow-ups (out of scope)</h2>
+<h2 id="followups"><span class="secnum">6</span>Follow-ups</h2>
 <div class="tablewrap"><table>
-<thead><tr><th>Follow-up</th><th>Where</th><th>Why separate</th></tr></thead>
-<tbody><tr><td>REPLACE</td><td class="mono">file.ts:10</td><td>REPLACE</td></tr></tbody>
+<thead><tr><th>Follow-up (outside the ticket)</th><th>Where</th></tr></thead>
+<tbody><tr><td>REPLACE</td><td class="mono">file.ts:10</td></tr></tbody>
 </table></div>
 
-<h2 id="alternatives"><span class="secnum">8</span>Alternatives considered</h2>
+<h2 id="alternatives"><span class="secnum">7</span>Alternatives considered</h2>
 <div class="tablewrap"><table>
 <thead><tr><th>Option</th><th>Why not</th></tr></thead>
 <tbody><tr><td>REPLACE</td><td>REPLACE</td></tr></tbody>
@@ -335,17 +302,17 @@ td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-va
 
 <!-- ================= PART 2: PLAIN WORDS ================= -->
 <p class="part">Part 2 · The task in plain words</p>
-<h2 id="refresher"><span class="secnum">9</span>Two-minute refresher</h2>
+<h2 id="refresher"><span class="secnum">8</span>Two-minute refresher</h2>
 <div class="concept">
 <p class="ctag">Concept</p>
 <p class="cname">REPLACE</p>
 <dl><dt>What</dt><dd>REPLACE</dd><dt>Everyday</dt><dd>REPLACE</dd><dt>Where</dt><dd><code>path/in/repo.ts</code></dd><dt>Why</dt><dd>REPLACE</dd></dl>
 </div>
 
-<h2 id="wants"><span class="secnum">10</span>What the task wants, and why it matters</h2>
+<h2 id="wants"><span class="secnum">9</span>What the task wants, and why it matters</h2>
 <p>REPLACE</p>
 
-<h2 id="steps"><span class="secnum">11</span>What you'll do, step by step</h2>
+<h2 id="steps"><span class="secnum">10</span>What you'll do, step by step</h2>
 <h3>Step 1 · REPLACE <code>path/to/file.ts</code></h3>
 <p class="aside">REPLACE: the plain-words why.</p>
 <div class="ctx">
@@ -357,27 +324,23 @@ td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-va
 <dt>Watch out for</dt><dd>REPLACE (optional): real gotchas only.</dd>
 </dl>
 </div>
-<p class="label">Before · file.ts:83</p>
-<pre><code class="language-typescript">old code</code></pre>
-<p class="label after">After (sketch)</p>
-<pre><code class="language-typescript">new code   // ← what changed</code></pre>
 <p class="fixes">REPLACE: plain-words effect.</p>
 
-<h2 id="done"><span class="secnum">12</span>How you'll know you're done</h2>
+<h2 id="done"><span class="secnum">11</span>How you'll know you're done</h2>
 <ul class="checklist"><li>REPLACE</li></ul>
 
 <!-- ================= WRAP-UP ================= -->
 <p class="part">Wrap-up</p>
-<h2 id="worth-knowing"><span class="secnum">13</span>Data stores and tools worth knowing</h2>
+<h2 id="worth-knowing"><span class="secnum">12</span>Data stores and tools worth knowing</h2>
 <h3>REPLACE: niche command or option</h3>
 <p>REPLACE</p>
-<h2 id="tips"><span class="secnum">14</span>Senior engineer tips</h2>
+<h2 id="tips"><span class="secnum">13</span>Senior engineer tips</h2>
 <div class="tip">
 <h3>REPLACE: practice name</h3>
 <p class="meta">applies to: path/to/file.ts</p>
 <p>REPLACE: when it applies, when it doesn't, the trade-off.</p>
 </div>
-<h2 id="practice"><span class="secnum">15</span>Practice</h2>
+<h2 id="practice"><span class="secnum">14</span>Practice</h2>
 <div class="quiz">
 <section class="q" data-answer="b">
 <p class="qn">Q1 · multiple choice</p>
@@ -389,7 +352,7 @@ td.num { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-va
 <p class="why" hidden>One-line why.</p>
 </section>
 </div>
-<h2 id="glossary"><span class="secnum">16</span>Glossary</h2>
+<h2 id="glossary"><span class="secnum">15</span>Glossary</h2>
 <dl class="gloss"><dt>Term</dt><dd>Plain definition.</dd></dl>
 </main>
 
